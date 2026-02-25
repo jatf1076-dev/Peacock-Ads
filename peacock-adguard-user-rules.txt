@@ -1,4 +1,4 @@
-! ----- PEACOCK ULTIMATE AGGRESSIVE BLOCK LIST v2.2 (Stable) -----
+! ----- PEACOCK ULTIMATE AGGRESSIVE BLOCK LIST v2.3 (Stable) -----
 ! Purpose: Aggressively block Peacock ad shards and ad tech while preserving VOD and live playback.
 ! Use: Import into AdGuard -> Filters -> User rules (or paste into User rules).
 
@@ -6,7 +6,7 @@
 ! Block Peacock CDN shards used for content/ad segments (VOD ad shards)
 # Anchored regex — matches hosts like g002-vod-us-cmaf-prd-ak.cdn.peacocktv.com
 # New Rule Testing
-/^g\d{1,4}-(vod|sf|sle)-us-cmaf-prd-[a-z0-9]{2,3}-[a-z0-9-]+\.cdn\.peacocktv\.com$/
+/^g\d{1,4}-(vod|sf|sle)-us-cmaf-prd-[a-z]{2,3}-a\d+\.cdn\.peacocktv\.com$/
 
 ! === SECONDARY BLOCK ===
 ! Block NETSKRT ad-segment CDN (most variants)
@@ -28,6 +28,10 @@
 ||*.v.fwmrm.net^$important
 ||29773.v.fwmrm.net^$important
 ||s.fwmrm.net^$important
+||census-app.scorecardresearch.com^$important
+||sb.scorecardresearch.com^$important
+||nbcstreaming.sc.omtrdc.net^$important
+||sas.peacocktv.com^$important
 
 ! === ALLOWLISTS (preserve live / session continuity) ===
 ! Allow Adobe DTM loader (required for some TV clients' runtime bootstrap)
